@@ -55,7 +55,7 @@ const copyCommand = () => {
         <SvgFiRrAngleSmallRight class="icon" />
       </span>
       <input
-        class="w-full bg-transparent text-base"
+        class="w-full bg-transparent text-base text-light"
         type="text"
         disabled
         autocomplete="off"
