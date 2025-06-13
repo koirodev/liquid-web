@@ -1,0 +1,41 @@
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+
+    @apply box-border;
+  }
+
+  .page {
+    scroll-padding-top: 90px;
+    scroll-behavior: smooth;
+
+    color: theme('colors.theme.text');
+    @apply h-full scroll-smooth text-balance text-[16px];
+
+    &__body {
+      @apply m-0 min-h-full min-w-[300px] bg-theme-bg text-theme-text;
+    }
+  }
+
+  .main {
+    @apply flex h-auto flex-col;
+  }
+
+  ::selection {
+    @apply bg-theme-accent text-dark;
+  }
+
+  .wrapper {
+    padding-top: var(--global-header-height, 0px);
+
+    @apply animation-default relative z-10 flex min-h-screen flex-col items-stretch;
+
+    &__content {
+      @apply flex grow flex-col;
+    }
+  }
+
+  noindex {
+    display: contents;
+  }
+}

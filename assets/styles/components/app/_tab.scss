@@ -1,0 +1,15 @@
+@layer components {
+  .tab {
+    @apply flex-center animation-default size-fit rounded border border-stroke bg-dark2 px-3 py-2 font-secondary text-sm text-light transition-colors;
+
+    & {
+      @include hover {
+        @apply border-stroke/100;
+      }
+    }
+
+    &.tab_active {
+      @apply border-stroke/100;
+    }
+  }
+}

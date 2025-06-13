@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "mrmlnc.vscode-csscomb",
+    "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "rebornix.project-snippets",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "ecmel.vscode-html-css",
+    "kisstkondoros.vscode-gutter-preview",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "VisualStudioExptTeam.intellicode-api-usage-examples",
+    "Zignd.html-css-class-completion",
+    "streetsidesoftware.code-spell-checker-russian",
+    "streetsidesoftware.code-spell-checker",
+    "esbenp.prettier-vscode",
+    "Vue.volar"
+  ]
+}

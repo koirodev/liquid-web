@@ -1,0 +1,150 @@
+@layer components {
+  .text {
+    line-height: 1.6;
+
+    @apply font-primary empty:hidden;
+
+    &_xl {
+      @apply text text-xl;
+
+      & {
+        @include mediaTablet {
+          @apply text-lg;
+        }
+      }
+    }
+
+    &_base {
+      @apply text text-lg;
+
+      & {
+        @include mediaTablet {
+          @apply text-base;
+        }
+      }
+    }
+
+    &_md {
+      @apply text text-base;
+
+      & {
+        @include mediaTablet {
+          @apply text-sm;
+        }
+      }
+    }
+
+    &_xs {
+      @apply text text-sm;
+
+      & {
+        @include mediaTablet {
+          @apply text-xs;
+        }
+      }
+    }
+  }
+
+  .h1 {
+    @apply font-secondary text-8xl font-bold;
+
+    & {
+      @include mediaTablet {
+        @apply text-6xl;
+      }
+
+      @include mediaMobile {
+        @apply text-4xl;
+      }
+    }
+  }
+
+  .h2,
+  article h1:not([class]) {
+    @apply font-secondary text-6xl font-bold;
+
+    & {
+      @include mediaTablet {
+        @apply text-4xl;
+      }
+
+      @include mediaMobile {
+        @apply text-2xl;
+      }
+    }
+  }
+
+  .h3,
+  article h2:not([class]) {
+    @apply font-secondary text-4xl font-bold;
+
+    & {
+      @include mediaTablet {
+        @apply text-2xl;
+      }
+
+      @include mediaMobile {
+        @apply text-xl;
+      }
+    }
+  }
+
+  .h4,
+  article h3:not([class]) {
+    @apply font-secondary text-2xl font-bold;
+
+    & {
+      @include mediaTablet {
+        @apply text-xl;
+      }
+
+      @include mediaMobile {
+        @apply text-lg;
+      }
+    }
+  }
+
+  .h1,
+  .h2,
+  .h3 {
+    line-height: 1.2;
+  }
+
+  .text-accent,
+  strong {
+    font: inherit;
+
+    @apply text-primary;
+  }
+
+  .link:any-link,
+  .article a:not([class]):any-link {
+    --link-color: theme('colors.primary.DEFAULT');
+    --link-color-hover: theme('colors.primary.DEFAULT');
+    --link-stroke-color: theme('colors.primary.transparent');
+    --link-stroke-color-hover: theme('colors.primary.DEFAULT');
+
+    position: relative;
+
+    color: var(--link-color);
+    text-decoration-color: var(--link-stroke-color);
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 3%;
+    text-underline-position: under;
+
+    @apply animation-default transition-colors;
+
+    & {
+      @include hover {
+        --link-color: var(--link-color-hover) !important;
+        --link-stroke-color: var(--link-stroke-color-hover) !important;
+      }
+    }
+
+    &::before {
+      @include pseudo(10);
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.page__body {
+  --va-font-family: theme('fontFamily.secondary');
+}
+
+.va-slider {
+  --va-slider-dot-value-font-size: 12px;
+  --va-slider-dot-value-font-weight: 600;
+  --va-slider-dot-value-letter-spacing: 0px;
+  --va-slider-dot-value-line-height: 1;
+  --va-slider-dot-value-user-select: none;
+
+  &__handler__dot--value {
+    color: theme('colors.primary.DEFAULT') !important;
+  }
+
+  &__track {
+    background-color: theme('colors.primary.transparent') !important;
+
+    &--selected {
+      background-color: theme('colors.primary.DEFAULT') !important;
+    }
+  }
+
+  &__handler {
+    background-color: theme('colors.light.DEFAULT') !important;
+    border-color: theme('colors.primary.DEFAULT') !important;
+
+    &__dot--focus {
+      display: none !important;
+    }
+  }
+}
+
+.va-input-wrapper {
+  --va-input-wrapper-background: theme('colors.stroke.dark') !important;
+  --va-input-wrapper-color: theme('colors.light.DEFAULT') !important;
+  --va-input-wrapper-text-color: theme('colors.light.DEFAULT') !important;
+
+  backdrop-filter: blur(4px) !important;
+  border: 1px solid theme('colors.stroke.light') !important;
+  border-radius: theme('borderRadius.DEFAULT') !important;
+  overflow: hidden !important;
+
+  &__field {
+    padding: 8px 16px !important;
+
+    border: none !important;
+    outline: none !important;
+  }
+}
+
+.va-select-content__option {
+  text-transform: capitalize !important;
+}
+
+.va-select-option-list {
+  border: none !important;
+  outline: none !important;
+}
+
+.va-select-option {
+  padding: 8px 16px !important;
+
+  text-transform: capitalize !important;
+  color: theme('colors.light.DEFAULT') !important;
+
+  &:hover {
+    background-color: theme('colors.primary.transparent') !important;
+  }
+
+  &--selected {
+    background-color: theme('colors.primary.transparent') !important;
+  }
+
+  .va-icon {
+    display: none !important;
+  }
+}
+
+.va-dropdown {
+  &__content {
+    z-index: 100 !important;
+
+    background: transparent !important;
+    border-radius: theme('borderRadius.DEFAULT') !important;
+    overflow: hidden !important;
+  }
+}
+
+.va-select-dropdown {
+  &__options-wrapper {
+    background: theme('colors.stroke.dark') !important;
+    backdrop-filter: blur(4px) !important;
+    border: 1px solid theme('colors.stroke.light') !important;
+    border-radius: theme('borderRadius.DEFAULT') !important;
+  }
+}

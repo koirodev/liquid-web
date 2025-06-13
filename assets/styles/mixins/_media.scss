@@ -1,0 +1,29 @@
+@mixin mediaDesktop() {
+  @media (max-width: theme('screens.md')) {
+    @content;
+  }
+}
+
+@mixin mediaLaptop() {
+  @media (max-width: theme('screens.ml')) {
+    @content;
+  }
+}
+
+@mixin mediaTablet() {
+  @media (max-width: theme('screens.mt')) {
+    @content;
+  }
+}
+
+@mixin mediaMobile() {
+  @media (max-width: theme('screens.mm')) {
+    @content;
+  }
+}
+
+@mixin media($width) {
+  @media (width <= $width) {
+    @content;
+  }
+}

@@ -1,0 +1,59 @@
+@layer components {
+  .logo-image {
+    @apply relative flex size-12 shrink-0 cursor-pointer select-none;
+
+    & {
+      @include media(780px) {
+        @apply size-10;
+      }
+
+      @include hover {
+        .logo-icon path {
+          &:first-child {
+            @apply opacity-0;
+          }
+
+          &:not(:first-child) {
+            @apply animation-default translate-x-[5%] translate-y-[22%] rotate-[-30deg] scale-[1.15] transition-transform;
+          }
+        }
+      }
+    }
+  }
+
+  .logo-icon {
+    @apply pointer-events-none absolute left-0 top-0 size-full;
+
+    path {
+      @apply animation-default origin-[0%_75%] transition-[transform_opacity];
+    }
+  }
+
+  .logo-name {
+    @apply relative bottom-1 font-secondary text-2xl lowercase leading-none;
+
+    & {
+      @include media(780px) {
+        @apply text-lg;
+      }
+    }
+  }
+
+  .logo-version {
+    @apply animation-default relative flex h-fit w-fit self-center overflow-hidden rounded-md border border-stroke-light p-1 font-primary text-xs leading-none text-light;
+
+    & {
+      @include media(780px) {
+        @apply text-[9px];
+      }
+
+      @include media(320px) {
+        @apply hidden;
+      }
+
+      @include hover {
+        @apply border-stroke-light/80;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'mixins';
+
+@import 'js';
+@import 'fonts';
+@import 'theme';
+
+@import 'base';
+@import 'components';
+@import 'utilities';

@@ -1,0 +1,20 @@
+@layer utilities {
+  .page-enter-active,
+  .page-leave-active {
+    transition:
+      filter calc(var(--animation-duration) / 4) var(--cubic-bezier),
+      opacity calc(var(--animation-duration) / 4) var(--cubic-bezier);
+  }
+
+  .page-enter-active {
+    transition:
+      filter var(--animation-medium),
+      opacity var(--animation-medium);
+  }
+
+  .page-enter-from,
+  .page-leave-to {
+    filter: var(--blur-default);
+    opacity: 0;
+  }
+}

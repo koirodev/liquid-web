@@ -1,0 +1,5 @@
+@layer utilities {
+  .image {
+    @apply pointer-events-none h-auto select-none;
+  }
+}

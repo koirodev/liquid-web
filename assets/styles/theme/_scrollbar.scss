@@ -1,0 +1,26 @@
+@layer base {
+  .page .os-scrollbar {
+    --os-handle-bg: theme('colors.stroke.DEFAULT');
+    --os-handle-bg-active: theme('colors.primary.DEFAULT');
+    --os-handle-bg-hover: theme('colors.primary.DEFAULT');
+    --os-handle-border: none;
+    --os-handle-border-active: none;
+    --os-handle-border-hover: none;
+    --os-handle-border-radius: calc(infinity * 1px);
+    --os-handle-interactive-area-offset: 5px;
+    --os-padding-axis: 4px;
+    --os-padding-perpendicular: 4px;
+    --os-size: 14px;
+    --os-track-bg: transparent;
+    --os-track-bg-active: none;
+    --os-track-bg-hover: none;
+    --os-track-border: none;
+    --os-track-border-active: none;
+    --os-track-border-hover: none;
+    --os-track-border-radius: 0;
+  }
+
+  .os-scrollbar-handle {
+    cursor: pointer;
+  }
+}

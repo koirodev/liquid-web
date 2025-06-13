@@ -1,0 +1,22 @@
+@use './mini' as *;
+
+@mixin pseudo($pixel, $repeat: false, $transparent: true) {
+  top: -#{rem($pixel)};
+  left: -#{rem($pixel)};
+
+  width: calc(100% + #{rem($pixel)} * 2);
+  height: calc(100% + #{rem($pixel)} * 2);
+
+  @if $repeat == false {
+    content: '';
+
+    position: absolute;
+
+    @if $transparent {
+      background-color: transparent;
+      opacity: 0;
+    }
+  }
+
+  @content;
+}

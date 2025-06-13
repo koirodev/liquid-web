@@ -1,0 +1,211 @@
+@layer components {
+  .article {
+    --article-font: 400 #{rem(18)} / 1.6 theme('fontFamily.primary');
+    --article-image-background: theme('colors.dark2');
+    --article-margin-blocks: #{rem(20)};
+    --article-margin-h2-3-bottom: #{rem(30)};
+    --article-margin-h2-3-top: #{rem(50)};
+    --article-margin-h4-6-bottom: #{rem(20)};
+    --article-margin-h4-6-top: #{rem(30)};
+    --article-margin-text: #{rem(20)};
+    --article-other-color: theme('colors.light.secondary');
+    --article-text-color: theme('colors.light.secondary');
+    --article-title-color: theme('colors.white');
+
+    width: 100%;
+    display: block;
+
+    color: var(--article-text-color);
+    font: var(--article-font);
+
+    & {
+      @include mediaTablet {
+        --article-font: 400 #{rem(16)} / 1.6 theme('fontFamily.primary');
+        --article-margin-blocks: #{rem(15)};
+        --article-margin-h2-3-bottom: #{rem(20)};
+        --article-margin-h2-3-top: #{rem(35)};
+        --article-margin-h4-6-bottom: #{rem(15)};
+        --article-margin-h4-6-top: #{rem(20)};
+        --article-margin-text: #{rem(15)};
+      }
+    }
+
+    &:empty {
+      display: none;
+    }
+
+    p:not([class]),
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+
+      padding: 0;
+      width: 100%;
+    }
+
+    > div {
+      margin-bottom: var(--article-margin-blocks);
+    }
+
+    .h1,
+    h1:not([class]),
+    .h2,
+    h2:not([class]),
+    .h3,
+    h3:not([class]) {
+      margin-top: var(--article-margin-h2-3-top);
+      margin-bottom: var(--article-margin-h2-3-bottom);
+
+      color: var(--article-title-color);
+    }
+
+    .h4,
+    h4:not([class]),
+    .h5,
+    h5:not([class]),
+    .h6,
+    h6:not([class]) {
+      margin-top: var(--article-margin-h4-6-top);
+      margin-bottom: var(--article-margin-h4-6-bottom);
+
+      color: var(--article-title-color);
+    }
+
+    p:not([class]),
+    ul:not([class]),
+    ol:not([class]) {
+      margin: var(--article-margin-text) 0;
+
+      ol:not([class]),
+      ul:not([class]) {
+        margin: calc(var(--article-margin-text) / 2) 0;
+      }
+    }
+
+    p:not([class]) {
+      ol:not([class]),
+      ul:not([class]) {
+        margin: 0;
+      }
+    }
+
+    p:not([class]) {
+      + ul:not([class]),
+      + ol:not([class]) {
+        margin-top: calc(0px - var(--article-margin-text) / 2);
+      }
+    }
+
+    p:not([class]) {
+      + .code-block:not(.ignore-margin) {
+        margin-top: calc(0px - var(--article-margin-text) / 2);
+      }
+    }
+
+    b:not([class]),
+    strong:not([class]) {
+      font: inherit;
+    }
+
+    b:not([class]) {
+      font-weight: 600;
+    }
+
+    img:not([class]) {
+      margin: var(--article-margin-blocks) 0;
+
+      padding: 0;
+      width: 100%;
+      height: auto;
+      max-height: 90vh;
+      display: flex;
+      object-fit: cover;
+      object-position: center;
+
+      background-color: var(--article-image-background);
+
+      user-select: none;
+    }
+
+    iframe:not([class]) {
+      margin: var(--article-margin-blocks) 0;
+
+      padding: 0;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      display: flex;
+    }
+
+    figure:not([class]) {
+      margin: var(--article-margin-blocks) 0;
+
+      padding: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: rem(30);
+
+      @include mediaTablet {
+        gap: rem(20);
+      }
+
+      @include mediaMobile {
+        gap: rem(12);
+      }
+
+      > *:not([class]) {
+        margin: 0;
+
+        color: var(--article-other-color);
+        font: var(--font-body-M);
+        text-align: left;
+      }
+    }
+
+    [data-v-app] {
+      margin-top: var(--article-margin-blocks);
+      margin-bottom: var(--article-margin-blocks);
+
+      width: 100%;
+    }
+
+    .table {
+      margin-top: var(--article-margin-blocks);
+      margin-bottom: var(--article-margin-blocks);
+
+      table {
+        margin: 0;
+      }
+    }
+
+    .link {
+      &::before {
+        content: unset;
+      }
+    }
+
+    p:not([class]) {
+      > img:not([class]),
+      > iframe:not([class]) {
+        margin: 0;
+      }
+    }
+
+    > * {
+      &:first-child {
+        margin-top: 0 !important;
+      }
+
+      &:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}

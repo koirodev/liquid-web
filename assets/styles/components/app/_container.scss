@@ -1,0 +1,5 @@
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-[var(--container-width)] px-[var(--container-offset)];
+  }
+}

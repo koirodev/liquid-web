@@ -1,0 +1,428 @@
+// Настройка модальных окон
+:root {
+  --blur-secondary: blur(4px);
+  --js-fancybox-animation: var(--js-fancybox-duration) var(--js-fancybox-ease); // Скорость анимации
+  --js-fancybox-backdrop: #02021a33; // Фон модальном окне (не в фото)
+  --js-fancybox-backdrop-photo: #02021a33; // Фон в модальном окне фото
+  --js-fancybox-cross-color: theme(
+    'colors.light.DEFAULT'
+  ); // Цвет кнопки закрытия
+  --js-fancybox-cross-color-hover: theme(
+    'colors.light.secondary'
+  ); // Цвет кнопки закрытия при наведении
+  --js-fancybox-cross-offset-right: 0px; // Позиционирование кнопки закрытия в модальном окне (не в фото)
+  --js-fancybox-cross-offset-top: calc(
+    #{rem(-25)} - var(--js-fancybox-cross-size)
+  ); // Позиционирование кнопки закрытия в модальном окне (не в фото)
+  --js-fancybox-cross-size: #{rem(26)}; // Размер кнопки закрытия
+  --js-fancybox-cross-url: url('~/assets/svg/fi-rr-cross.svg'); // Ссылка на иконку закрытия
+  --js-fancybox-duration: theme(
+    'transitionDuration.default'
+  ); // Скорость анимации
+  --js-fancybox-ease: theme(
+    'transitionTimingFunction.default'
+  ); // Скорость анимации
+  --js-fancybox-image-max-width: 100%; // Максимальная ширина изображения
+  --js-fancybox-nav-padding: calc(
+    var(--container-offset) + #{rem(50)}
+  ); // Отступ кнопок навигации
+  --js-fancybox-offset: calc(
+    var(--js-fancybox-cross-size) + var(--js-fancybox-cross-offset-top) * -1
+  ); // Верхний и нижний отступы модальном окне (не в фото)
+  --js-fancybox-offset-image-bottom: #{rem(50)}; // Внешние отступы снизу модальном окне с фото
+  --js-fancybox-offset-image-top: #{rem(50)}; // Внешние отступы сверху модальном окне с фото
+  --js-fancybox-padding: var(--js-fancybox-offset) var(--container-offset); // Внешние отступы модальном окне (не в фото)
+  --js-fancybox-padding-image: 0px var(--container-offset); // Внутренние отступы в модальном окне с фото
+  --js-fancybox-radius: theme(
+    'borderRadius.DEFAULT'
+  ); // Радиус углов модального окна (не в фото)
+  --js-fancybox-radius-image: theme(
+    'borderRadius.DEFAULT'
+  ); // Радиус углов модального окна с фото
+  --js-fancybox-thumb-radius: theme(
+    'borderRadius.DEFAULT'
+  ); // Радиус углов миниатюр
+  --js-fancybox-toolbar-offset: 20px; // Отступ навигационной панели в модальном окне с фото
+
+  @include mediaDesktop {
+    --js-fancybox-cross-offset-top: calc(
+      #{rem(-20)} - var(--js-fancybox-cross-size)
+    );
+    --js-fancybox-cross-size: #{rem(20)};
+    --js-fancybox-nav-padding: calc(var(--container-offset) + #{rem(30)});
+    --js-fancybox-offset-image-bottom: #{rem(40)};
+    --js-fancybox-offset-image-top: #{rem(40)};
+  }
+
+  @include mediaLaptop {
+    --js-fancybox-cross-size: #{rem(18)};
+    --js-fancybox-offset-image-bottom: #{rem(30)};
+    --js-fancybox-offset-image-top: #{rem(30)};
+  }
+
+  @include mediaTablet {
+    --js-fancybox-cross-offset-top: calc(
+      #{rem(-15)} - var(--js-fancybox-cross-size)
+    );
+    --js-fancybox-offset-image-bottom: #{rem(20)};
+    --js-fancybox-offset-image-top: var(--container-offset);
+    --js-fancybox-toolbar-offset: var(--container-offset);
+  }
+
+  @include mediaMobile {
+    --js-fancybox-cross-offset-top: calc(
+      #{rem(-20)} - var(--js-fancybox-cross-size)
+    );
+    --js-fancybox-cross-size: #{rem(16)};
+  }
+}
+
+// Настройка кнопок навигации
+:root {
+  --js-fancybox-button-bg-color: var(--bg-light);
+  --js-fancybox-button-bg-color-hover: var(--bg-dark);
+  --js-fancybox-button-border-color: transparent;
+  --js-fancybox-button-border-color-hover: transparent;
+  --js-fancybox-button-border-radius: var(--radius-common);
+  --js-fancybox-button-border-width: 0px;
+  --js-fancybox-button-font: var(--font-body-L);
+  --js-fancybox-button-icon-color: var(--text-dark-100);
+  --js-fancybox-button-icon-color-hover: var(--text-light-100);
+  --js-fancybox-button-icon-size: #{rem(30)};
+  --js-fancybox-button-icon-url: url('~/assets/svg/double_left.svg');
+  --js-fancybox-button-size: #{rem(80)};
+
+  @include mediaDesktop {
+    --js-fancybox-button-icon-size: #{rem(20)};
+    --js-fancybox-button-size: #{rem(60)};
+  }
+
+  @include mediaLaptop {
+    --js-fancybox-button-icon-size: #{rem(18)};
+    --js-fancybox-button-size: #{rem(50)};
+  }
+
+  @include mediaTablet {
+    --js-fancybox-button-icon-size: #{rem(16)};
+    --js-fancybox-button-size: #{rem(44)};
+  }
+}
+
+// Модальные окна
+.fancybox {
+  &__container {
+    &:not(.has-toolbar) {
+      .fancybox {
+        &__backdrop {
+          background-color: var(--js-fancybox-backdrop);
+          backdrop-filter: var(--blur-secondary);
+        }
+
+        &__slide {
+          padding: var(--js-fancybox-padding) !important;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+
+          overflow: hidden;
+
+          &::before,
+          &::after {
+            content: unset;
+          }
+        }
+      }
+    }
+
+    &.has-toolbar {
+      padding: var(--js-fancybox-offset-image-top) 0
+        var(--js-fancybox-offset-image-bottom);
+
+      .fancybox {
+        &__backdrop {
+          --fancybox-bg: var(--js-fancybox-backdrop-photo);
+
+          backdrop-filter: var(--blur-secondary);
+        }
+
+        &__toolbar {
+          top: var(--js-fancybox-toolbar-offset);
+
+          .is-right {
+            margin-right: var(--js-fancybox-toolbar-offset);
+
+            .f-button {
+              width: var(--js-fancybox-cross-size);
+              height: var(--js-fancybox-cross-size);
+
+              &[data-fancybox-close] {
+                background: transparent;
+
+                @include hover {
+                  &::after {
+                    background-color: var(--js-fancybox-cross-color-hover);
+                  }
+                }
+
+                svg {
+                  display: none;
+                }
+
+                &::before {
+                  @include pseudo(15);
+                }
+
+                &::after {
+                  content: '';
+
+                  width: 100%;
+                  height: 100%;
+
+                  background-color: var(--js-fancybox-cross-color);
+
+                  transition: background-color var(--js-fancybox-animation);
+
+                  mask-image: var(--js-fancybox-cross-url);
+                  mask-position: center;
+                  mask-repeat: no-repeat;
+                  mask-size: contain;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .fancybox__slide.has-image {
+      padding: var(--js-fancybox-padding-image) !important;
+      align-items: center;
+      justify-content: center;
+
+      &::before,
+      &::after {
+        content: unset;
+      }
+
+      .fancybox {
+        &__content {
+          max-width: var(--js-fancybox-image-max-width);
+        }
+      }
+
+      img {
+        border-radius: var(--js-fancybox-radius-image);
+
+        user-select: none;
+      }
+    }
+
+    .f-thumbs {
+      --f-thumb-border-radius: var(--js-fancybox-thumb-radius) !important;
+
+      padding: 0;
+
+      &.is-horizontal .f-thumbs__track {
+        padding: 0;
+      }
+    }
+  }
+
+  &__caption {
+    color: var(--js-fancybox-caption-color);
+    font: var(--js-fancybox-caption-font);
+    text-align: center;
+  }
+
+  &__footer {
+    position: relative !important;
+
+    padding-top: var(--js-fancybox-offset-image-bottom);
+    display: none; // скрываем, так как не используется
+
+    background: transparent !important;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+    padding: 0 var(--js-fancybox-nav-padding);
+    width: 100%;
+    max-width: calc(var(--container-width));
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    pointer-events: none;
+  }
+
+  &__content {
+    padding: 0;
+    max-height: 100%;
+
+    background-color: transparent;
+
+    .f-button.is-close-btn {
+      top: var(--js-fancybox-cross-offset-top) !important;
+      right: var(--js-fancybox-cross-offset-right) !important;
+
+      width: var(--js-fancybox-cross-size);
+      height: var(--js-fancybox-cross-size);
+
+      background: none;
+      opacity: 1;
+
+      @include hover {
+        &::before {
+          background-color: var(--js-fancybox-cross-color-hover);
+        }
+      }
+
+      svg {
+        display: none;
+      }
+
+      &::after {
+        @include pseudo(10);
+      }
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: var(--js-fancybox-cross-color);
+        opacity: 1;
+
+        transition: background-color var(--animation-default);
+
+        mask-image: var(--js-fancybox-cross-url);
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+      }
+    }
+  }
+}
+
+// Кнопки навигации
+.fancybox__nav .f-button {
+  &.is-next,
+  &.is-prev {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    margin: auto !important;
+
+    width: var(--js-fancybox-button-size);
+    height: var(--js-fancybox-button-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    color: var(--js-fancybox-button-icon-color);
+    text-decoration: none;
+
+    background: var(--js-fancybox-button-bg-color);
+    border: var(--js-fancybox-button-border-width) solid
+      var(--js-fancybox-button-border-color);
+    border-radius: var(--js-fancybox-button-border-radius);
+
+    transform: translateY(0) !important;
+    transition:
+      background-color var(--js-fancybox-animation),
+      border-color var(--js-fancybox-animation);
+
+    cursor: pointer;
+    pointer-events: all;
+    user-select: none;
+
+    @include mediaMobile {
+      display: none;
+    }
+
+    @include hover {
+      --js-fancybox-button-bg-color: var(--js-fancybox-button-bg-color-hover);
+      --js-fancybox-button-border-color: var(
+        --js-fancybox-button-border-color-hover
+      );
+      --js-fancybox-button-icon-color: var(
+        --js-fancybox-button-icon-color-hover
+      );
+    }
+
+    &:disabled {
+      background-color: transparent;
+      border-color: transparent;
+
+      &:after {
+        opacity: 0;
+      }
+    }
+
+    svg {
+      display: none;
+    }
+
+    &::before {
+      @include pseudo(6);
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+
+      width: var(--js-fancybox-button-icon-size);
+      height: var(--js-fancybox-button-icon-size);
+
+      background-color: var(--js-fancybox-button-icon-color);
+
+      transition:
+        background-color var(--js-fancybox-animation),
+        opacity var(--js-fancybox-animation),
+        visibility var(--js-fancybox-animation);
+
+      mask-image: var(--js-fancybox-button-icon-url);
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-size: contain;
+    }
+  }
+
+  &.is-next {
+    margin-right: 0 !important;
+
+    transform: scale(-1, 1) !important;
+  }
+
+  &.is-prev {
+    margin-left: 0 !important;
+  }
+}

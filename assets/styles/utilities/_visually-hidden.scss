@@ -1,0 +1,7 @@
+@layer utilities {
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+
+    @apply absolute -m-px size-px overflow-hidden border-0 p-0;
+  }
+}

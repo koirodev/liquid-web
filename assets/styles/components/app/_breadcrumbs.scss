@@ -1,0 +1,69 @@
+@layer components {
+  .breadcrumbs {
+    --breadcrumbs-color: theme('colors.light.DEFAULT');
+    --breadcrumbs-color-hover: theme('colors.light.secondary');
+    --breadcrumbs-gap: #{rem(20)};
+    --breadcrumbs-padding-bottom: var(--breadcrumbs-padding-top);
+    --breadcrumbs-padding-top: #{rem(27)};
+    --breadcrumbs-stroke-size: 1px;
+
+    @apply relative z-10;
+
+    & {
+      @include mediaTablet {
+        --breadcrumbs-padding-top: #{rem(15)};
+      }
+
+      @include mediaMobile {
+        --breadcrumbs-gap: #{rem(8)};
+        --breadcrumbs-padding-bottom: calc(var(--breadcrumbs-padding-top) * 2);
+        --breadcrumbs-padding-top: #{rem(10)};
+      }
+    }
+
+    &__list {
+      padding: var(--breadcrumbs-padding-top) 0
+        var(--breadcrumbs-padding-bottom);
+      gap: var(--breadcrumbs-gap);
+      row-gap: calc(var(--breadcrumbs-gap) / 2);
+
+      @apply flex-start relative m-0 w-full flex-row flex-wrap;
+    }
+
+    &__item {
+      gap: var(--breadcrumbs-gap);
+
+      @apply flex-start;
+
+      &::before {
+        color: var(--breadcrumbs-color);
+
+        @apply text_xs pointer-events-none select-none content-['/'];
+      }
+
+      &:first-of-type::before {
+        content: unset;
+      }
+
+      &:last-of-type {
+        @apply pointer-events-none;
+      }
+    }
+
+    &__link {
+      color: var(--breadcrumbs-color);
+
+      @apply text_xs animation-default relative cursor-pointer transition-color;
+
+      & {
+        @include hover {
+          color: var(--breadcrumbs-color-hover);
+        }
+      }
+
+      &::before {
+        @include pseudo(10);
+      }
+    }
+  }
+}

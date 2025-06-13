@@ -1,0 +1,9 @@
+@layer utilities {
+  .bg-gradient-25-to-b {
+    background-image: linear-gradient(
+      180deg,
+      var(--tw-gradient-from) 25%,
+      var(--tw-gradient-to) 100%
+    );
+  }
+}

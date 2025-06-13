@@ -1,0 +1,12 @@
+.tippy-box[data-theme~='light'] {
+  color: theme('colors.light.DEFAULT') !important;
+  font: 400 14px / 1.6 theme('fontFamily.secondary');
+
+  box-shadow:
+    0 0 10px 2px rgba(95, 99, 110, 0.15),
+    0 2px 10px -4px rgba(29, 31, 36, 0.25),
+    0 2px 1px -1px rgba(35, 35, 37, 0.15) !important;
+  background-color: #09071d38 !important;
+  backdrop-filter: blur(2px);
+  border: 1px solid theme('colors.stroke.light');
+}

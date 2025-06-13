@@ -1,0 +1,39 @@
+@layer utilities {
+  .icon {
+    --icon-animation: var(--icon-duration) var(--icon-ease);
+    --icon-color: theme('colors.icon');
+    --icon-duration: theme('transitionDuration.default');
+    --icon-ease: theme('transitionTimingFunction.default');
+    --icon-size: #{rem(20)};
+
+    &,
+    * {
+      margin: 0 !important;
+
+      width: var(--icon-size) !important;
+      height: var(--icon-size) !important;
+      display: block;
+      flex-shrink: 0;
+
+      fill: var(--icon-color) !important;
+
+      transition:
+        fill var(--icon-animation),
+        transform var(--icon-animation),
+        opacity var(--icon-animation),
+        visibility var(--icon-animation);
+
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  .icon-speed,
+  .icon-speed * {
+    transition:
+      fill calc(var(--icon-duration) / 3.5) var(--icon-ease),
+      transform var(--icon-animation),
+      opacity var(--icon-animation),
+      visibility var(--icon-animation);
+  }
+}

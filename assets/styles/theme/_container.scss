@@ -1,0 +1,17 @@
+:root {
+  --container-offset: #{rem(110)};
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --content-width: #{rem(1960)};
+
+  @media (max-width: theme('screens.ml')) {
+    --container-offset: #{rem(80)};
+  }
+
+  @media (max-width: theme('screens.mt')) {
+    --container-offset: #{rem(40)};
+  }
+
+  @media (max-width: theme('screens.mm')) {
+    --container-offset: #{rem(15)};
+  }
+}

@@ -1,0 +1,73 @@
+@layer components {
+  .section {
+    --section-padding: #{rem(100)};
+
+    @apply flex-start w-full;
+
+    & {
+      @include mediaTablet {
+        --section-padding: #{rem(60)};
+      }
+
+      @include mediaMobile {
+        --section-padding: #{rem(40)};
+      }
+    }
+
+    > .container:not(.grid) {
+      @apply flex-start flex-col gap-8;
+
+      & {
+        @include mediaTablet {
+          @apply gap-6;
+        }
+
+        @include mediaMobile {
+          @apply gap-4;
+        }
+      }
+    }
+
+    &_padding {
+      &_top {
+        padding-top: var(--section-padding);
+      }
+
+      &_bottom {
+        padding-bottom: var(--section-padding);
+      }
+    }
+
+    &_margin {
+      &_top {
+        margin-top: var(--section-padding);
+      }
+
+      &_bottom {
+        margin-bottom: var(--section-padding);
+      }
+    }
+
+    &_center {
+      .section {
+        &__head {
+          @apply flex-center text-center;
+        }
+      }
+    }
+
+    &__head {
+      @apply flex-start w-full flex-col gap-6;
+
+      & {
+        @include mediaTablet {
+          @apply gap-4;
+        }
+      }
+    }
+
+    &__content {
+      @apply h-fit w-full;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@mixin iconAnimation {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto !important;
+
+  path {
+    transform-origin: center;
+  }
+
+  &:last-of-type:not(:first-of-type) {
+    path {
+      &:first-of-type {
+        transform: scale(0);
+      }
+
+      &:last-of-type {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin iconAnimationHover {
+  path {
+    &:last-of-type {
+      transform: scale(0);
+    }
+  }
+
+  &:last-of-type:not(:first-of-type) {
+    transform: translateX(0);
+
+    path {
+      &:first-of-type {
+        transform: scale(1);
+      }
+
+      &:last-of-type {
+        display: none;
+      }
+    }
+  }
+}

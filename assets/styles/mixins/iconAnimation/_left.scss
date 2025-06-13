@@ -1,0 +1,15 @@
+@use "./base" as *;
+
+@mixin iconAnimationLeft {
+  &:last-of-type:not(:first-of-type) {
+    transform: translateX(29%);
+  }
+
+  @include iconAnimation;
+}
+
+@mixin iconAnimationLeftHover {
+  transform: translateX(-29%);
+
+  @include iconAnimationHover;
+}
