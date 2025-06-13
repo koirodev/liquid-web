@@ -16,7 +16,7 @@ Liquid Web is a modern JavaScript library for easy creation of Apple liquid glas
 
 Simply plug it into your project and get a modern liquid glass effect.
 
-[Go to the website](https://koirodev.github.io/liquid-web/) see it in action and customize your Liquid Glass effect!
+[**Go to the website**](https://koirodev.github.io/liquid-web/) see it in action and customize your Liquid Glass effect!
 
 [![Liquid Glass Gif](https://raw.githubusercontent.com/koirodev/liquid-web/refs/heads/main/images/preview.gif)](https://liquid.prismify.in)
 
