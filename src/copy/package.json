@@ -5,16 +5,21 @@
   "type": "module",
   "main": "./liquid-core.mjs",
   "module": "./liquid-core.mjs",
+  "types": "./types/index.d.ts",
+  "typesVersions": {
+    "*": {
+      ".": ["./types/index.d.ts"],
+      "core": ["./types/core.d.ts"],
+      "ui": ["./types/index.d.ts"],
+      "react": ["./types/react.d.ts"],
+      "vue": ["./types/vue.d.ts"]
+    }
+  },
 
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
       "import": "./liquid-core.mjs"
-    },
-
-    "./modules": {
-      "types": "./types/modules/index.d.ts",
-      "import": "./modules/index.mjs"
     },
 
     "./react": {
