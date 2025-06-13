@@ -3,6 +3,7 @@
 .fleet
 .idea
 .git
+.vscode
 __MACOSX
 
 # Vue
