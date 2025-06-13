@@ -1,0 +1,25 @@
+name: '[DOCS] Test Build'
+
+on:
+  pull_request:
+    branches:
+      - docs-prod
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["${{ vars.NODE_VERSION || '20.18' }}"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clean dependencies
+        run: rm -rf package-lock.json node_modules
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build

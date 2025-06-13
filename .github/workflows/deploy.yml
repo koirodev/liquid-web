@@ -1,0 +1,58 @@
+name: '[DOCS] PROD'
+
+on:
+  push:
+    branches:
+      - docs-prod
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["${{ vars.NODE_VERSION || '20.18' }}"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Archived project
+        run: |
+          tar -cf public_html.tar --force-local ./
+      - name: Uploading the archive to the server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SITE_HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          source: 'public_html.tar'
+          target: './'
+      - name: The final stage of deployment. Removing, unzipping, building the project
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SITE_HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          script: |
+            source $HOME/.bashrc
+
+            NODE_VERSION=${{ vars.NODE_VERSION || '20.18' }}
+            CURRENT_NODE_VERSION=$(node -v)
+            if [[ $CURRENT_NODE_VERSION != v$NODE_VERSION* ]]; then
+              nvm alias default $NODE_VERSION
+              nvm use default
+            fi
+
+            cd $HOME/${{ secrets.SITE_PATH }}
+            rm -rf ./* &>/dev/null
+            tar -xf $HOME/public_html.tar -C $HOME/${{ secrets.SITE_PATH }}/
+            rm $HOME/public_html.tar
+            cd $HOME/${{ secrets.SITE_PATH }}
+            sed -i 's/"name": *".*"/"name": "${{ secrets.USERNAME }}"/' package.json
+            npm install
+            npm run build
+
+            if ! command -v pm2 &> /dev/null; then
+              echo 'export PATH=/usr/lib/ispnodejs/bin:$PATH' >> $HOME/.bashrc
+              source $HOME.bashrc
+            fi
+            pm2 restart ${{ secrets.USERNAME }}
