@@ -100,6 +100,7 @@ export const LiquidWeb = defineComponent({
         try {
           instance.value = new LiquidWebCore(liquidwebRef.value, finalOptions);
         } catch (error) {
+          emit('error', error);
           throw new LiquidWebError(
             `Failed to initialize LiquidWeb: ${error.message}`,
             error
@@ -111,10 +112,15 @@ export const LiquidWeb = defineComponent({
     onUnmounted(() => {
       try {
         const rawInstance = instance.value ? toRaw(instance.value) : null;
-        if (rawInstance && !rawInstance.destroyed && rawInstance.destroy) {
+        if (
+          rawInstance &&
+          typeof rawInstance.destroy === 'function' &&
+          !rawInstance.destroyed
+        ) {
           rawInstance.destroy();
         }
       } catch (error) {
+        emit('error', error);
         throw new LiquidWebError(
           `Failed to destroy LiquidWeb instance: ${error.message}`,
           error

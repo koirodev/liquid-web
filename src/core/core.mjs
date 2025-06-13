@@ -207,7 +207,6 @@ class LiquidWeb {
 
       this.update();
     } catch (error) {
-      console.error('Initialization error:', error);
       throw new LiquidWebError('Initialization failed', error);
     }
 

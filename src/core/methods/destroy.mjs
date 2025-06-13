@@ -19,7 +19,6 @@ export default {
     this.$svg = null;
     this.$backdrop?.remove();
     this.$backdrop = null;
-    console.log(this);
     this.$el?.appendChild?.(this.$content);
     this.$el?.querySelector('.liquidweb__content')?.remove();
     this.$el?.classList.remove('liquidweb');
@@ -41,6 +40,7 @@ export default {
 
     this.eventsListeners = {};
     this.eventsAnyListeners = [];
+    this.initialized = false;
     this.destroyed = true;
 
     this.emit('afterDestroy');

@@ -16,8 +16,9 @@ Liquid Web is a modern JavaScript library for easy creation of Apple liquid glas
 
 Simply plug it into your project and get a modern liquid glass effect.
 
-![Liquid Glass Card](https://raw.githubusercontent.com/koirodev/liquid-web/refs/heads/main/images/card.png)
-![Liquid Glass Button](https://raw.githubusercontent.com/koirodev/liquid-web/refs/heads/main/images/button.png)
+[Go to the website](https://koirodev.github.io/liquid-web/) see it in action and customize your Liquid Glass effect!
+
+[![Liquid Glass Gif](https://raw.githubusercontent.com/koirodev/liquid-web/refs/heads/main/images/preview.gif)](https://liquid.prismify.in)
 
 ## Table of Contents
 
@@ -105,18 +106,18 @@ export default () => {
 
 ## Options
 
-| Option        | Type                                             | Default  | Description                                       |
-| ------------- | ------------------------------------------------ | -------- | ------------------------------------------------- |
-| `el?`         | `string \| HTMLElement`                          | -        | Element selector to apply liquid effect.          |
-| `init?`       | `boolean`                                        | `true`   | Whether to initialize the effect on load.         |
-| `scale?`      | `number`                                         | `22`     | Changes the intensity of the displacement effect. |
-| `blur?`       | `number \| string`                               | `2`      | Changes the intensity of the blur effect.         |
-| `saturation?` | `number \| string`                               | `170`    | Changes the intensity of the saturation effect.   |
-| `aberration?` | `number`                                         | `50`     | Changes the intensity of the aberration effect.   |
-| `mode?`       | 'standard' \| 'polar' \| 'prominent' \| 'shader' | `shader` | Toggles the glass effect.                         |
-| `on?`         | `LiquidWebEventListeners`                        | -        | Event listeners for the liquid effect.            |
-| `events?`     | `LiquidWebEventListeners`                        | -        | Event listeners for the liquid effect.            |
-| `onAny?`      | `LiquidWebEventCallback`                         | -        | Callback for any event.                           |
+| Option        | Type                                             | Default    | Description                                       |
+| ------------- | ------------------------------------------------ | ---------- | ------------------------------------------------- |
+| `el?`         | `string \| HTMLElement`                          | -          | Element selector to apply liquid effect.          |
+| `init?`       | `boolean`                                        | `true`     | Whether to initialize the effect on load.         |
+| `scale?`      | `number`                                         | `22`       | Changes the intensity of the displacement effect. |
+| `blur?`       | `number \| string`                               | `2`        | Changes the intensity of the blur effect.         |
+| `saturation?` | `number \| string`                               | `170`      | Changes the intensity of the saturation effect.   |
+| `aberration?` | `number`                                         | `50`       | Changes the intensity of the aberration effect.   |
+| `mode?`       | 'standard' \| 'polar' \| 'prominent' \| 'shader' | `standard` | Toggles the glass effect.                         |
+| `on?`         | `LiquidWebEventListeners`                        | -          | Event listeners for the liquid effect.            |
+| `events?`     | `LiquidWebEventListeners`                        | -          | Event listeners for the liquid effect.            |
+| `onAny?`      | `LiquidWebEventCallback`                         | -          | Callback for any event.                           |
 
 ## Events
 

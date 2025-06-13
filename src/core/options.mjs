@@ -4,5 +4,5 @@ export default {
   blur: 2,
   saturation: 170,
   aberration: 50,
-  mode: 'shader',
+  mode: 'standard',
 };

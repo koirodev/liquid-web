@@ -11,7 +11,7 @@
     "paths": {
       "@core/*": ["src/core/*"],
       "@utils/*": ["src/utils/*"],
-      "@types/*": ["types/*"]
+      "@types/*": ["src/types/*"]
     },
     "outDir": "dist",
     "declaration": true

@@ -1,6 +1,6 @@
 {
   "name": "liquid-web-src",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Modern JavaScript library for easy creation of liquid glass effect for Vue, React, VanillaJS",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/koirodev/liquid-web/issues"
   },
-  "homepage": "https://github.com/koirodev/liquid-web#readme",
+  "homepage": "https://liquid.prismify.in",
   "devDependencies": {
     "@csstools/postcss-is-pseudo-class": "^5.0.1",
     "autoprefixer": "^10.4.20",

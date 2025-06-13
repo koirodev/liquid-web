@@ -93,7 +93,7 @@ export const LiquidWeb = ({
       } catch (error) {
         if (process.env.NODE_ENV !== 'production') {
           // eslint-disable-next-line no-console
-          console.error('Failed to destroy LiquidWeb instance:', error);
+          throw new LiquidWebError('Failed to destroy LiquidWeb instance', error);
         }
       } finally {
         instanceRef.current = null;

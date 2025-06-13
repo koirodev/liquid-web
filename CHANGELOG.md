@@ -1,3 +1,11 @@
+## 1.1.0 - Released on 2025-06-13
+
+### Fixes
+
+- Fixed a bug that caused a module to crash on Vue.js
+- Fixed an erroneous console.log() call;
+
+
 ## 1.0.8 - Released on 2025-06-13
 
 ### nothing happened...
