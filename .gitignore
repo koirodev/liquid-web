@@ -1,0 +1,24 @@
+# Misc
+.DS_Store
+.fleet
+.idea
+.git
+.vscode
+__MACOSX
+
+# Vue
+.nuxt
+.output
+/assets
+/middleware
+
+node_modules
+dist
+demo
+demo-vue
+demo-react
+
+# Local env files
+.env
+.env.*
+!.env.example

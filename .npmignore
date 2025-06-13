@@ -1,0 +1,26 @@
+# Misc
+.DS_Store
+.fleet
+.idea
+.github
+.git
+.vscode
+__MACOSX
+
+# Directories
+demos
+node_modules
+scripts
+src
+
+# Files
+.csscomb.json
+.editorconfig
+.gitignore
+CODE_OF_CONDUCT.md
+gulpfile.mjs
+
+# Local env files
+.env
+.env.*
+!.env.example

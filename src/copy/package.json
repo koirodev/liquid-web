@@ -1,0 +1,43 @@
+{
+  "name": "liquid-web",
+  "version": "@version",
+  "description": "@description",
+  "type": "module",
+  "main": "./liquid-core.mjs",
+  "module": "./liquid-core.mjs",
+
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./liquid-core.mjs"
+    },
+
+    "./modules": {
+      "types": "./types/modules/index.d.ts",
+      "import": "./modules/index.mjs"
+    },
+
+    "./react": {
+      "types": "./types/react.d.ts",
+      "import": "./react/index.mjs"
+    },
+    
+    "./vue": {
+      "types": "./types/vue.d.ts",
+      "import": "./vue/index.mjs"
+    }
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koirodev/liquid-web.git"
+  },
+  
+  "keywords": @keywords,
+  "author": "@author",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koirodev/liquid-web/issues"
+  },
+  "homepage": "@homepage"
+}
