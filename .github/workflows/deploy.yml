@@ -47,7 +47,7 @@ jobs:
             tar -xf $HOME/public_html.tar -C $HOME/${{ secrets.SITE_PATH }}/
             rm $HOME/public_html.tar
             cd $HOME/${{ secrets.SITE_PATH }}
-            sed -i 's/"name": *".*"/"name": "${{ secrets.USERNAME }}"/' package.json
+            sed -i 's/"name": *".*"/"name": "${{ vars.DOMAIN || 'liquid.prismify.in' }}"/' package.json
             npm install
             npm run build
 
@@ -55,4 +55,4 @@ jobs:
               echo 'export PATH=/usr/lib/ispnodejs/bin:$PATH' >> $HOME/.bashrc
               source $HOME.bashrc
             fi
-            pm2 restart ${{ secrets.USERNAME }}
+            pm2 restart ${{ vars.DOMAIN || 'liquid.prismify.in' }}
