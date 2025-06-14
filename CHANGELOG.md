@@ -1,3 +1,10 @@
+## 1.1.1 - Released on 2025-06-14
+
+### Fixes
+
+- Content width settings.
+
+
 ## 1.1.0 - Released on 2025-06-13
 
 ### Fixes

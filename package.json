@@ -1,6 +1,6 @@
 {
   "name": "liquid-web-src",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Modern JavaScript library for easy creation of liquid glass effect for Vue, React, VanillaJS",
   "main": "index.js",
   "scripts": {
