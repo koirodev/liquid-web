@@ -57,7 +57,7 @@ export default defineNuxtConfig({
       ],
       meta: [
         { name: 'apple-mobile-web-app-title', content: 'nuxt.dev0' },
-        { name: 'robots', content: 'noindex, nofollow' },
+        { name: 'robots', content: 'index, follow' },
       ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },

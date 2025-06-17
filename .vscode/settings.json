@@ -21,7 +21,6 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "css.customData": [".vscode/tailwind.json"],
   "files.associations": {
     "*.vue": "vue"
   },
@@ -40,8 +39,5 @@
     "swiper",
     "vueuse",
     "whois"
-  ],
-  "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
-  }
+  ]
 }
